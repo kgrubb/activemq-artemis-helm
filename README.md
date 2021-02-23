@@ -80,8 +80,9 @@ The following tables lists the configurable parameters of the MySQL chart and th
 
 | Parameter                            | Description                           | Default                                                    |
 | ------------------------------------ | ------------------------------------- | ---------------------------------------------------------- |
-| `imageTag`                           | `vromero/activemq-artemis` image tag. | Most recent release                                        |
-| `imagePullPolicy`                    | Image pull policy                     | `IfNotPresent`                                             |
+| `image.tag`                           | `vromero/activemq-artemis` image tag. | Most recent release                                        |
+| `image.pullPolicy`                    | Image pull policy                     | `IfNotPresent`                                             |
+| `image.pullSecret`                    | Secret to pull image                     | ``                                             |
 | `artemisUser`                        | Username of new user to create.       | `artemis`                                                  |
 | `artemisPassword`                    | Password for the new user.            | `simetraehcapa`                                            |
 | `replicas`                           | Number of nodes in the cluster.       | 2                                                          |

@@ -32,7 +32,10 @@ spec:
       securityContext:      
 {{ toYaml .Values.deployment.securityContext | indent 8 }}
       {{- end }}
-      imagePullSecrets: {{ toYaml .Values.image.pullSecrets }}
+      {{- if .Values.image.pullSecret }}      
+      imagePullSecrets:
+      - name: {{ .Values.image.pullSecret }}
+      {{- end }}
       initContainers:
       - name: configure-cluster
         image: {{ template "artemis.image" . }}
