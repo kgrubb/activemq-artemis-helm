@@ -44,8 +44,32 @@ configmap:
 deployment:
   ## Artemis Deployment annotations
   annotations: {}
-  securityContext: {}
   #   name: value
+  securityContext: {}
+    # fsGroup: 1000
+    # runAsUser: 1000
+    # runAsNonRoot: true
+  masterLivenessProbe:
+    tcpSocket:
+      port: http
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  masterReadinessProbe:
+    tcpSocket:
+      port: core
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  slaveLivenessProbe:
+    tcpSocket:
+      port: http
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  slaveReadinessProbe:
+    tcpSocket:
+      port: core
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  
 replica:
   ## Artemis Replicas annotations
   annotations: {}

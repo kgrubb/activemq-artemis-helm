@@ -87,6 +87,10 @@ The following tables lists the configurable parameters of the MySQL chart and th
 | `replicas`                           | Number of nodes in the cluster.       | 2                                                          |
 | `configmap.extraConfig`                        | Extra config if needed in generated configmap            |    ""                                              |
 | `deployment.securityContext`                        | Security Context for Master & Slave statefulsets             |    {}                                              |
+| `deployment.masterLivenessProbe`                        | Liveness probe for Master             |    Check Values                                              |
+| `deployment.masterReadinessProbe`                        | Readiness Prove for master nodes             |    Check values                                              |
+| `deployment.slaveLivenessProbe`                        | Liveness probe for slaves             |    Check values                                              |
+| `deployment.slaveReadinessProbe`                        | Readiness Probe for slaves             |    Check values                                              |
 | `service.type`                        | Type for Service             |    ClusterIP                                              |
 | `persistence.enabled`                | Create a volume to store data         | true                                                       |
 | `persistence.size`                   | Size of persistent volume claim       | 8Gi RW                                                     |

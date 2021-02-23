@@ -72,16 +72,14 @@ spec:
           containerPort: 5672
         - name: jmxexporter
           containerPort: 9404
+{{- if .Values.deployment.slaveLivenessProbe }}
         livenessProbe:
-          tcpSocket:
-            port: http
-          initialDelaySeconds: 10
-          periodSeconds: 10
+{{ toYaml .Values.deployment.slaveLivenessProbe | indent 10 }}
+{{- end }}
+{{- if .Values.deployment.slaveReadinessProbe }}
         readinessProbe:
-          tcpSocket:
-            port: core
-          initialDelaySeconds: 10
-          periodSeconds: 10
+{{ toYaml .Values.deployment.slaveReadinessProbe | indent 10 }}
+{{- end }}
         volumeMounts:
         - name: data
           mountPath: /var/lib/artemis/data
