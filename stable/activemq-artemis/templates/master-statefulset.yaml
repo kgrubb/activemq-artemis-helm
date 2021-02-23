@@ -27,6 +27,10 @@ spec:
         release: {{ .Release.Name | quote }}
         component: master
     spec:
+      {{- if .Values.deployment.securityContext }}
+      securityContext:      
+{{ toYaml .Values.deployment.securityContext | indent 8 }}
+      {{- end }}
       affinity:
         podAntiAffinity:
         {{- if eq .Values.antiAffinity "hard" }}

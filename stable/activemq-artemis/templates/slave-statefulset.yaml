@@ -28,6 +28,10 @@ spec:
         release: {{ .Release.Name | quote }}
         component: slave
     spec:
+      {{- if .Values.deployment.securityContext }}
+      securityContext:      
+{{ toYaml .Values.deployment.securityContext | indent 8 }}
+      {{- end }}
       imagePullSecrets: {{ toYaml .Values.image.pullSecrets }}
       initContainers:
       - name: configure-cluster
