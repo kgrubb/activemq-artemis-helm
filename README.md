@@ -12,9 +12,9 @@ Forked from [vromero](https://github.com/vromero/activemq-artemis-helm) as it ha
 ## 2. What is the ActiveMQ Artemis Helm Chart
 
 A chart is package composed of files that describe a related set of [Kubernetes](http://kubernetes.io) resources. The packages
-stand in a [Helm](https://helm.sh) repository. This Git repository is a Helm repository too. 
+stand in a [Helm](https://helm.sh) repository. This Git repository is a Helm repository too.
 
-Helm packages can have dependencies much like Debian packages can have dependencies, and they greatly 
+Helm packages can have dependencies much like Debian packages can have dependencies, and they greatly
 simplify the management of complex distributed systems in Kubernetes.
 
 This chart bootstraps a cluster of ActiveMQ Artemis nodes with a configurable size. The topology is a
@@ -85,6 +85,7 @@ The following tables lists the configurable parameters of the MySQL chart and th
 | `artemisUser`                        | Username of new user to create.       | `artemis`                                                  |
 | `artemisPassword`                    | Password for the new user.            | `simetraehcapa`                                            |
 | `replicas`                           | Number of nodes in the cluster.       | 2                                                          |
+| `service.type`                        | Type for Service             |    ClusterIP                                              |
 | `persistence.enabled`                | Create a volume to store data         | true                                                       |
 | `persistence.size`                   | Size of persistent volume claim       | 8Gi RW                                                     |
 | `persistence.storageClass`           | Type of persistent volume claim       | nil  (uses alpha storage class annotation)                 |
