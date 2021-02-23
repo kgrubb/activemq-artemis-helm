@@ -36,7 +36,7 @@ jobs:
     - name: Run chart-releaser
       uses: helm/chart-releaser-action@v1.0.0
       env:
-        CR_TOKEN: "${{ secrets.CR_TOKEN }}"
+        CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       with: 
-        charts_repo_url: https://vromero.github.io/activemq-artemis-helm/
+        charts_repo_url: https://kahootali.github.io/activemq-artemis-helm/
         charts_dir: stable

@@ -1,15 +1,13 @@
 
-#THIS PROJECT IS ARCHIVED
+# Activemq Artemis Helm
 
-It has been quite a ride but after a few years, with multiple initiatives going on around Artemis and Docker both from Redhat and from Apache, I've decided that its time to let these project take the spot the community around this project and I have been occuping till now.
-
-Of course the project will remain read-only and you should feel free to fork but I won't be maintaining anymore.
+Forked from [vromero](https://github.com/vromero/activemq-artemis-helm) as it has been archived.
 
 ## 1. What is ActiveMQ Artemis?
 
 [Apache ActiveMQ Artemis](https://activemq.apache.org/artemis) is an open source project to build a multi-protocol, embeddable, very high performance, clustered, asynchronous messaging system. Apache ActiveMQ Artemis is an example of Message Oriented Middleware (MoM).
 
-![logo](https://raw.githubusercontent.com/apache/activemq-artemis/master/docs/user-manual/en/images/artemis-logo.png)
+![logo](https://raw.githubusercontent.com/apache/activemq-artemis/master/docs/user-manual/en/images/activemq-logo.png)
 
 ## 2. What is the ActiveMQ Artemis Helm Chart
 
@@ -33,7 +31,7 @@ active master.
 Just like in Debian, Fedora or similar. First we need to add a repository to our list:
 
 ```bash
-helm repo add activemq-artemis https://vromero.github.io/activemq-artemis-helm/
+helm repo add activemq-artemis https://kahootali.github.io/activemq-artemis-helm/
 ```
 At this point when the package is searched for it should be found:
 
