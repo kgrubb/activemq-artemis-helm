@@ -9,6 +9,9 @@ data:
   template-common.xml: |
     <configuration xmlns="urn:activemq" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:activemq /schema/artemis-configuration.xsd">
       <core xmlns="urn:activemq:core" xsi:schemaLocation="urn:activemq:core ">
+        {{- if .Values.configmap.extraConfig }}
+{{ toYaml .Values.configmap.extraConfig | indent 8 }}
+        {{- end }}
 
         <cluster-user>exampleUser</cluster-user>
         <cluster-password>secret</cluster-password>

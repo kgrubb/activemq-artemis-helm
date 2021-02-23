@@ -85,6 +85,7 @@ The following tables lists the configurable parameters of the MySQL chart and th
 | `artemisUser`                        | Username of new user to create.       | `artemis`                                                  |
 | `artemisPassword`                    | Password for the new user.            | `simetraehcapa`                                            |
 | `replicas`                           | Number of nodes in the cluster.       | 2                                                          |
+| `configmap.extraConfig`                        | Extra config if needed in generated configmap            |    ""                                              |
 | `service.type`                        | Type for Service             |    ClusterIP                                              |
 | `persistence.enabled`                | Create a volume to store data         | true                                                       |
 | `persistence.size`                   | Size of persistent volume claim       | 8Gi RW                                                     |
