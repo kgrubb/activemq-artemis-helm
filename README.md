@@ -1,7 +1,7 @@
 
 # Activemq Artemis Helm
 
-Forked from [vromero](https://github.com/vromero/activemq-artemis-helm) as it has been archived.
+Forked from [kahootali](https://github.com/kahootali/activemq-artemis-helm).
 
 ## 1. What is ActiveMQ Artemis?
 
@@ -31,12 +31,12 @@ active master.
 Just like in Debian, Fedora or similar. First we need to add a repository to our list:
 
 ```bash
-helm repo add activemq-artemis https://kahootali.github.io/activemq-artemis-helm/
+helm repo add activemq-artemis https://kgrubb.github.io/activemq-artemis-helm/
 ```
 At this point when the package is searched for it should be found:
 
 ```bash
-CHART VERSION	APP VERSION	DESCRIPTION                                       
+CHART VERSION	APP VERSION	DESCRIPTION
 activemq-artemis/activemq-artemis	0.0.1        	           	a multi-protocol, embeddable, very high perform...
 ```
 
@@ -78,28 +78,29 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following tables lists the configurable parameters of the MySQL chart and their default values.
 
-| Parameter                            | Description                           | Default                                                    |
-| ------------------------------------ | ------------------------------------- | ---------------------------------------------------------- |
-| `image.tag`                           | `vromero/activemq-artemis` image tag. | Most recent release                                        |
-| `image.pullPolicy`                    | Image pull policy                     | `IfNotPresent`                                             |
-| `image.pullSecret`                    | Secret to pull image                     | ``                                             |
-| `artemisUser`                        | Username of new user to create.       | `artemis`                                                  |
-| `artemisPassword`                    | Password for the new user.            | `simetraehcapa`                                            |
-| `replicas`                           | Number of nodes in the cluster.       | 2                                                          |
-| `configmap.extraConfig`                        | Extra config if needed in generated configmap            |    ""                                              |
-| `deployment.securityContext`                        | Security Context for Master & Slave statefulsets             |    {}                                              |
-| `deployment.masterLivenessProbe`                        | Liveness probe for Master             |    Check Values                                              |
-| `deployment.masterReadinessProbe`                        | Readiness Prove for master nodes             |    Check values                                              |
-| `deployment.slaveLivenessProbe`                        | Liveness probe for slaves             |    Check values                                              |
-| `deployment.slaveReadinessProbe`                        | Readiness Probe for slaves             |    Check values                                              |
-| `service.type`                        | Type for Service             |    ClusterIP                                              |
-| `persistence.enabled`                | Create a volume to store data         | true                                                       |
-| `persistence.size`                   | Size of persistent volume claim       | 8Gi RW                                                     |
-| `persistence.storageClass`           | Type of persistent volume claim       | nil  (uses alpha storage class annotation)                 |
-| `persistence.accessMode`             | ReadWriteOnce or ReadOnly             | ReadWriteOnce                                              |
-| `persistence.testJournalPerformance` | See docker image docs                 | `AUTO`                                                     |
-| `resources.request.memory`           | Memory resource requests/limits       | `256Mi`                                                    |
-| `resources.request.cpu`              | CPU/Memory resource requests/limits   | `100m`                                                     |
+| Parameter                            | Description                                      | Default                                      |
+| ------------------------------------ | ------------------------------------------------ | -------------------------------------------- |
+| `image.tag`                          | `vromero/activemq-artemis` image tag.            | `latest`                                     |
+| `image.pullPolicy`                   | Image pull policy                                | `IfNotPresent`                               |
+| `image.pullSecret`                   | Secret to pull image                             | ``                                           |
+| `artemisUser`                        | Username of new user to create.                  | `artemis`                                    |
+| `artemisPassword`                    | Password for the new user.                       | `simetraehcapa`                              |
+| `existingPasswordSecret`             | Existing secret with credentials (must contain a value for `artemis-password` key) | `nil` (evaluated as a template) |
+| `replicas`                           | Number of nodes in the cluster.                  | `2`                                          |
+| `configmap.extraConfig`              | Extra config if needed in generated configmap    | `""`                                         |
+| `deployment.securityContext`         | Security Context for Master & Slave statefulsets | `{}`                                         |
+| `deployment.masterLivenessProbe`     | Liveness probe for Master                        | Check Values                                 |
+| `deployment.masterReadinessProbe`    | Readiness Prove for master nodes                 | Check Values                                 |
+| `deployment.slaveLivenessProbe`      | Liveness probe for slaves                        | Check Values                                 |
+| `deployment.slaveReadinessProbe`     | Readiness Probe for slaves                       | Check Values                                 |
+| `service.type`                       | Type for Service                                 | `ClusterIP`                                  |
+| `persistence.enabled`                | Create a volume to store data                    | `true`                                       |
+| `persistence.size`                   | Size of persistent volume claim                  | `8Gi RW`                                     |
+| `persistence.storageClass`           | Type of persistent volume claim                  | `nil`  (uses alpha storage class annotation) |
+| `persistence.accessMode`             | ReadWriteOnce or ReadOnly                        | `ReadWriteOnce`                              |
+| `persistence.testJournalPerformance` | See docker image docs                            | `AUTO`                                       |
+| `resources.request.memory`           | Memory resource requests/limits                  | `256Mi`                                      |
+| `resources.request.cpu`              | CPU/Memory resource requests/limits              | `100m`                                       |
 
 Some of the parameters above map to the env variables defined in the [vromero's ActiveMQ Artemis image](https://hub.docker.com/r/vromero/activemq-artemis/) refer to it for values, meaning, etc.
 

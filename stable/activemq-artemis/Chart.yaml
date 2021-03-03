@@ -16,6 +16,6 @@ sources:
 - https://github.com/kubernetes/charts
 - https://github.com/apache/activemq-artemis
 maintainers:
-- name: kahootali
-  email: kahoot.ali@gmail.com
+- name: kgrubb
+  email: madison.grubb@inmoment.com
 engine: gotpl

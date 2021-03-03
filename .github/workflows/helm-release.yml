@@ -23,7 +23,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     # https://github.com/helm/chart-releaser-action/issues/13#issuecomment-602058369
     - name: Fetch history
       run: git fetch --prune --unshallow
@@ -32,11 +32,11 @@ jobs:
       run: |
         git config user.name "$GITHUB_ACTOR"
         git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        
+
     - name: Run chart-releaser
       uses: helm/chart-releaser-action@v1.0.0
       env:
         CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      with: 
-        charts_repo_url: https://kahootali.github.io/activemq-artemis-helm/
+      with:
+        charts_repo_url: https://kgrubb.github.io/activemq-artemis-helm/
         charts_dir: stable

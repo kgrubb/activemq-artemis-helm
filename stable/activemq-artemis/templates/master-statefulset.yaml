@@ -15,7 +15,7 @@ spec:
   selector:
     matchLabels:
       app: {{ template "artemis.name" . }}
-      release: {{ .Release.Name | quote }}    
+      release: {{ .Release.Name | quote }}
       component: master
   template:
     metadata:
@@ -28,7 +28,7 @@ spec:
         component: master
     spec:
       {{- if .Values.deployment.securityContext }}
-      securityContext:      
+      securityContext:
 {{ toYaml .Values.deployment.securityContext | indent 8 }}
       {{- end }}
       affinity:
@@ -52,7 +52,7 @@ spec:
                   release: {{ .Release.Name | quote }}
                   component: slave
         {{- end }}
-      {{- if .Values.image.pullSecret }}      
+      {{- if .Values.image.pullSecret }}
       imagePullSecrets:
       - name: {{ .Values.image.pullSecret }}
       {{- end }}
@@ -78,7 +78,7 @@ spec:
         - name: ARTEMIS_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ include "artemis.fullname" . }}
+              name: {{ template "artemis.secretPasswordName" . }}
               key: artemis-password
         - name: ARTEMIS_USERNAME
           value: {{ default "artemis" .Values.artemisUser | quote }}
