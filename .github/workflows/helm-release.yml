@@ -1,30 +1,16 @@
 name: Release Charts
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
-on:
+\on:
   push:
     branches:
     - master
-    paths:
-    - "stable/activemq-artemis/**"
-    - ".github/workflows/helm-release.yml"
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  release:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # https://github.com/helm/chart-releaser-action/issues/13#issuecomment-602058369
-    - name: Fetch history
-      run: git fetch --prune --unshallow
+      with:
+        fetch-depth: 0
 
     - name: Configure Git
       run: |
@@ -32,7 +18,7 @@ jobs:
         git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
     - name: Run chart-releaser
-      uses: helm/chart-releaser-action@v1.0.0
+      uses: helm/chart-releaser-action@v1.2.0
       env:
         CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       with:
