@@ -3,6 +3,32 @@ entries:
   activemq-artemis:
   - apiVersion: v1
     appVersion: 2.16.0
+    created: "2021-03-08T22:53:47.94925886Z"
+    description: a multi-protocol, embeddable, very high performance, clustered, asynchronous
+      messaging system.
+    digest: db13f6e6c736f4dca269449567b2f2b7e35b7fa3b15c9dcd9a3b3923adae27dd
+    home: https://activemq.apache.org/artemis/
+    icon: https://activemq.apache.org/assets/img/activemq_logo_icon.png
+    keywords:
+    - activemq
+    - artemis
+    - messaging
+    - mom
+    - amqp
+    - jms
+    - mqtt
+    maintainers:
+    - email: madison.grubb@inmoment.com
+      name: kgrubb
+    name: activemq-artemis
+    sources:
+    - https://github.com/kubernetes/charts
+    - https://github.com/apache/activemq-artemis
+    urls:
+    - https://github.com/kgrubb/activemq-artemis-helm/releases/download/activemq-artemis-0.3.5/activemq-artemis-0.3.5.tgz
+    version: 0.3.5
+  - apiVersion: v1
+    appVersion: 2.16.0
     created: "2021-03-03T23:24:57.756737755Z"
     description: a multi-protocol, embeddable, very high performance, clustered, asynchronous
       messaging system.
@@ -27,4 +53,4 @@ entries:
     urls:
     - https://github.com/kgrubb/activemq-artemis-helm/releases/download/activemq-artemis-0.3.3/activemq-artemis-0.3.3.tgz
     version: 0.3.3
-generated: "2021-03-03T23:24:57.641895201Z"
+generated: "2021-03-08T22:53:47.94926776Z"
