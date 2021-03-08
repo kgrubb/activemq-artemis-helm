@@ -1,5 +1,5 @@
 name: Release Charts
-\on:
+on:
   push:
     branches:
     - master
