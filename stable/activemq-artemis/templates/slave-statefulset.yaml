@@ -7,6 +7,10 @@ metadata:
   labels:
 {{ include "artemis.labels.standard" . | indent 4 }}
 spec:
+  {{- with .Values.containerSecurityContext }}
+  securityContext:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
   serviceName: {{ include "artemis.fullname" . }}-slave
   replicas: {{ .Values.replicas }}
   podManagementPolicy: "Parallel"
@@ -52,6 +56,10 @@ spec:
       - name: {{ include "artemis.fullname" . }}
         image: {{ template "artemis.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        {{- with .Values.containerSecurityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         env:
