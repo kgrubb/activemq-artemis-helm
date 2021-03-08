@@ -1,6 +1,6 @@
 name: activemq-artemis
 apiVersion: v1
-version: 0.3.4
+version: 0.3.5
 appVersion: 2.16.0
 description: a multi-protocol, embeddable, very high performance, clustered, asynchronous messaging system.
 keywords:
