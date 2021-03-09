@@ -7,10 +7,6 @@ metadata:
   labels:
 {{ include "artemis.labels.standard" . | indent 4 }}
 spec:
-  {{- with .Values.podSecurityContext }}
-  securityContext:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
   serviceName: {{ include "artemis.fullname" . }}-master
   replicas: {{ .Values.replicas }}
   revisionHistoryLimit: 10
@@ -31,9 +27,9 @@ spec:
         release: {{ .Release.Name | quote }}
         component: master
     spec:
-      {{- if .Values.deployment.securityContext }}
+      {{- with .Values.podSecurityContext }}
       securityContext:
-{{ toYaml .Values.deployment.securityContext | indent 8 }}
+        {{- toYaml . | nindent 8 }}
       {{- end }}
       affinity:
         podAntiAffinity:
