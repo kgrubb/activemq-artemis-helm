@@ -88,7 +88,6 @@ The following tables lists the configurable parameters of the MySQL chart and th
 | `existingPasswordSecret`             | Existing secret with credentials (must contain a value for `artemis-password` key) | `nil` (evaluated as a template) |
 | `replicas`                           | Number of nodes in the cluster.                  | `2`                                          |
 | `configmap.extraConfig`              | Extra config if needed in generated configmap    | `""`                                         |
-| `deployment.securityContext`         | Security Context for Master & Slave statefulsets | `{}`                                         |
 | `deployment.masterLivenessProbe`     | Liveness probe for Master                        | Check Values                                 |
 | `deployment.masterReadinessProbe`    | Readiness Prove for master nodes                 | Check Values                                 |
 | `deployment.slaveLivenessProbe`      | Liveness probe for slaves                        | Check Values                                 |
